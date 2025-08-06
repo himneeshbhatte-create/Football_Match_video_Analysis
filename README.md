@@ -1,24 +1,46 @@
 # Football Analysis Project
 
 ## Introduction
-The goal of this project is to detect and track players, referees, and footballs in a video using YOLO, one of the best AI object detection models available. We will also train the model to improve its performance. Additionally, we will assign players to teams based on the colors of their t-shirts using Kmeans for pixel segmentation and clustering. With this information, we can measure a team's ball acquisition percentage in a match. We will also use optical flow to measure camera movement between frames, enabling us to accurately measure a player's movement. Furthermore, we will implement perspective transformation to represent the scene's depth and perspective, allowing us to measure a player's movement in meters rather than pixels. Finally, we will calculate a player's speed and the distance covered. This project covers various concepts and addresses real-world problems, making it suitable for both beginners and experienced machine learning engineers.
+s project aims to detect and track football players, referees, and the ball in match footage using YOLO, one of the most powerful real-time object detection models available. We go beyond basic detection by implementing several advanced computer vision techniques to generate meaningful match analytics.
 
-![Screenshot](output_videos/screenshot.png)
+🔍 Key Features
+Object Detection & Tracking
+We use YOLO to detect key entities (players, referees, ball) in each frame, and then track their movements across frames using object IDs.
 
-## Modules Used
-The following modules are used in this project:
-- YOLO: AI object detection model
-- Kmeans: Pixel segmentation and clustering to detect t-shirt color
-- Optical Flow: Measure camera movement
-- Perspective Transformation: Represent scene depth and perspective
-- Speed and distance calculation per player
+Team Classification using K-Means Clustering
+Players are classified into respective teams by applying K-Means clustering on the pixel colors of their jerseys, enabling team-wise analysis.
 
-## Trained Models
-- [Trained Yolo v5](https://drive.google.com/file/d/1DC2kCygbBWUKheQ_9cFziCsYVSRw6axK/view?usp=sharing)
+Ball Possession Estimation
+Based on proximity and interaction between players and the ball, we calculate each team’s ball possession percentage.
 
-## Sample video
--  [Sample input video](https://drive.google.com/file/d/1t6agoqggZKx6thamUuPAIdN_1zR9v9S_/view?usp=sharing)
+Camera Movement Detection using Optical Flow
+To account for camera panning or zooming, we implement optical flow, helping in adjusting player movement data relative to a stable ground plane.
 
+Perspective Transformation
+We apply perspective transformation to convert player positions from pixel space to real-world units (meters), making distance and speed measurements more accurate.
+
+Speed & Distance Tracker
+By combining tracking, frame rate, and transformed coordinates, we calculate:
+
+Real-time player speed (m/s)
+
+Total distance covered during the match (meters)
+
+🧠 Technologies Used
+YOLOv5 / YOLOv8 (for object detection)
+
+OpenCV (for tracking, image processing, optical flow, perspective transformation)
+
+Scikit-learn (for K-Means clustering)
+
+NumPy, Pandas, Matplotlib (for data handling & visualization)
+
+🎯 Why This Project?
+This project covers a range of real-world computer vision challenges, combining detection, tracking, clustering, and transformation. It provides a practical foundation for sports analytics and is suitable for:
+
+⚙️ Beginner ML/AI enthusiasts learning to work with real-world data
+
+🧠 Experienced engineers interested in applying vision techniques to structured sports analysis
 ## Requirements
 To run this project, you need to have the following requirements installed:
 - Python 3.x
